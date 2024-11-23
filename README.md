@@ -1,6 +1,6 @@
 # Evolutionary Algorithm for Solving the Travelling Salesman Problem (TSP)
 
-This repository demonstrates the use of **evolutionary algorithms (EAs)** to solve the **Travelling Salesman Problem (TSP)**. The implementation focuses on optimizing routes by analyzing the effects of parameters like population size, mutation rate, and crossover types on algorithm performance. The project is designed to parse datasets, simulate evolutionary operations, and visualize the results, providing valuable insights into combinatorial optimization.
+This repository demonstrates the use of **evolutionary algorithms (EAs)** to solve the **Travelling Salesman Problem (TSP)**. The implementation focuses on optimizing routes by analyzing the effects of hyperparameters like population size, mutation rate, and crossover types on algorithm performance. The project is designed to parse datasets, simulate evolutionary operations, and visualize the results, providing valuable insights into combinatorial optimization.
 
 ---
 
