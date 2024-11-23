@@ -4,15 +4,21 @@ This repository demonstrates the use of **evolutionary algorithms (EAs)** to sol
 
 ---
 
+### What is the Travelling Salesman Problem (TSP)?
+
+The **Travelling Salesman Problem (TSP)** is a classic **combinatorial optimization problem** where the objective is to find the shortest possible route that visits each city exactly once and returns to the starting point. TSP is widely used in industries such as logistics, route planning, and supply chain optimization due to its practical applications. Being an **NP-hard problem**, it requires advanced techniques, like evolutionary algorithms, to approximate the best solutions efficiently.
+
+---
+
 ## Why This Project?
 
-The Travelling Salesman Problem (TSP) is a classic combinatorial optimization challenge with applications in:
+The Travelling Salesman Problem (TSP) has significant real-world applications, including:
 - **Logistics**: Optimizing delivery routes.
-- **Route Planning**: Designing efficient travel paths.
+- **Route Planning**: Designing cost-effective travel paths.
 - **Operations Research**: Solving complex resource allocation problems.
-- **Data Science Benchmarks**: Testing optimization techniques in NP-hard scenarios.
+- **Data Science Benchmarks**: Evaluating optimization algorithms in NP-hard scenarios.
 
-This project provides a systematic workflow to explore, tune, and visualize the performance of evolutionary algorithms in minimizing travel costs across two datasets:
+This project provides a structured framework to explore, tune, and visualize the performance of evolutionary algorithms on TSP datasets:
 - **Brazil (58 cities)**: A larger, complex dataset for robust testing.
 - **Burma (14 cities)**: A smaller dataset for quick experimentation.
 
@@ -20,71 +26,72 @@ This project provides a systematic workflow to explore, tune, and visualize the 
 
 ## Code Overview
 
-The implementation is divided into four parts:
+The implementation is divided into four key stages:
 
 ### **Part 1: Data Import and Preparation**
 1. **Parsing XML Data**:
    - Import XML datasets into Jupyter notebooks.
-   - Parse the data to extract vertices (cities) and their respective costs (edges).
+   - Extract cities (vertices) and their respective travel costs (edges).
 
 2. **DataFrame Creation**:
-   - Create a function to transform parsed data into a DataFrame for easier manipulation.
-   - Generate a list of DataFrames to reduce time complexity during operations.
+   - Convert parsed data into DataFrames for easier manipulation.
+   - Optimize data handling by generating a list of DataFrames.
 
 ---
 
 ### **Part 2: Population Generation and Fitness Calculation**
 1. **Random Population Generation**:
-   - Generate a random solution population of user-defined size using the `random_population_generator()` function.
+   - Generate a random population of solutions using the `random_population_generator()` function.
 
 2. **Complete Travel Path**:
-   - Ensure that paths form a complete loop (starting and ending at the same city) using the `complete_loop_strings()` function.
+   - Ensure that all solutions form a complete loop (start and end at the same city) using `complete_loop_strings()`.
 
 3. **Fitness Calculation**:
    - Convert city paths into tuples with `convert_travel_list_to_tuples()`.
-   - Calculate the total cost (fitness) of each solution using the `total_cost_list()` function.
+   - Compute the total cost (fitness) of each solution using `total_cost_list()`.
 
 4. **Population Fitness DataFrame**:
-   - Create a DataFrame of all population solutions and their fitness values with the `dataframe_generator()` function.
+   - Compile all solutions and their fitness values into a DataFrame using `dataframe_generator()`.
 
 ---
 
 ### **Part 3: Experimentation on the Population**
 1. **Tournament Selection**:
-   - Select contenders for reproduction using `tournament_selection()` based on user-defined size.
-   - Determine the best-performing solution in the tournament using the `tournament()` function.
+   - Select contenders using `tournament_selection()` based on user-defined tournament size.
+   - Identify the best-performing solution using `tournament()`.
 
 2. **Crossover Operations**:
-   - Implement single-point crossover with `random_single_point_crossover()` or uniform crossover with `uniform_crossover()` to generate offspring.
-   - Fix duplication issues in offspring paths with `check_and_fix()`.
+   - Perform single-point crossover with `random_single_point_crossover()` or uniform crossover with `uniform_crossover()`.
+   - Resolve any duplication in paths using the `check_and_fix()` function.
 
 3. **Mutation**:
-   - Apply a user-defined mutation rate with the `mutation()` function, swapping pairs of cities within a solution.
-   - Update the population by replacing the least-fit solutions with the mutated offspring using `update_list_with_mutants()`.
+   - Apply mutation to offspring using the `mutation()` function, swapping genes (cities) to diversify solutions.
+   - Replace the least-fit solutions with the mutated offspring using `update_list_with_mutants()`.
 
 4. **Statistics Calculation**:
-   - Track and store the maximum, mean, and minimum costs across iterations using `calculate_cost_statistics()`.
+   - Track maximum, mean, and minimum costs across iterations using `calculate_cost_statistics()`.
 
 ---
 
 ### **Part 4: User-Defined Experimentation**
 1. **Parameter Input**:
-   - Allow users to specify:
-     - Number of contenders for the tournament.
-     - Type of crossover (single-point or uniform).
-     - Mutation rate and its application.
-     - Number of iterations for the experiment.
+   - Users can specify:
+     - Population size.
+     - Tournament size.
+     - Crossover type (single-point or uniform).
+     - Mutation rate.
+     - Number of iterations.
 
 2. **Result Visualization**:
-   - Generate plots to visualize max, mean, and min costs across iterations for data analysis.
+   - Plot and analyze max, mean, and min costs over iterations for performance evaluation.
 
 ---
 
 ## Key Features
-- **Data Transformation**: Parse and preprocess XML datasets into DataFrames for efficient analysis.
-- **Evolutionary Operations**: Implement tournament selection, crossover, mutation, and population updates to simulate evolutionary optimization.
-- **Hyperparameter Tuning**: Allow users to explore different configurations of population size, tournament size, crossover types, and mutation rates.
-- **Performance Visualization**: Plot and analyze metrics like max, mean, and min costs to evaluate algorithm effectiveness.
+- **Data Parsing**: Efficiently preprocess XML datasets into usable formats.
+- **Evolutionary Techniques**: Includes selection, crossover, mutation, and replacement to simulate natural evolution.
+- **Hyperparameter Exploration**: Test the impact of parameters like population size and mutation rate on optimization performance.
+- **Data Visualization**: Visualize algorithm performance over time with dynamic plots.
 
 ---
 
